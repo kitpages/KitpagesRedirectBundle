@@ -1,0 +1,41 @@
+<h1>Redirection</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Sourceurl</th>
+            <td>{{ entity.sourceUrl }}</td>
+        </tr>
+        <tr>
+            <th>Destinationurl</th>
+            <td>{{ entity.destinationUrl }}</td>
+        </tr>
+        <tr>
+            <th>Httpcode</th>
+            <td>{{ entity.httpCode }}</td>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('redirection') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('redirection_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('redirection_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

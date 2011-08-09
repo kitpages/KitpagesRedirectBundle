@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Kitpages\RedirectBundle\Entity\Redirection" table="kit_redirection">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="sourceUrl" type="string" column="source_url" length="255"/>
+    <field name="destinationUrl" type="string" column="destination_url" length="255"/>
+    <field name="httpCode" type="string" column="http_code" length="5" nullable="true"/>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

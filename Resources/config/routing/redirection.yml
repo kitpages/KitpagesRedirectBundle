@@ -1,0 +1,30 @@
+redirection:
+    pattern:  /
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:index" }
+
+redirection_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:show" }
+
+redirection_new:
+    pattern:  /new
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:new" }
+
+redirection_create:
+    pattern:  /create
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:create" }
+    requirements: { _method: post }
+
+redirection_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:edit" }
+
+redirection_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:update" }
+    requirements: { _method: post }
+
+redirection_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "KitpagesRedirectBundle:Redirection:delete" }
+    requirements: { _method: post }

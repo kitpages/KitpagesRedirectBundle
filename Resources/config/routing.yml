@@ -1,0 +1,3 @@
+KitpagesRedirectBundle_redirection:
+    resource: "@KitpagesRedirectBundle/Resources/config/routing/redirection.yml"
+    prefix:   /redirection
