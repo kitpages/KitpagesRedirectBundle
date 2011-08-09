@@ -1,7 +1,7 @@
 KitpagesRedirectBundle (work in progress)
 =====================================
 
-This is a redirect system for symfony2. (still no real documentation)
+This is a redirect system for symfony2.
 
 You register a list of sourceUrl and destinationUrl. if the URL requested
 by a navigator is in sourceUrl, you are redirected (301 redirection) to the
@@ -12,6 +12,10 @@ by the symfony2 genrator.
 
 author : Philippe Le Van (@plv)
 
+Current state of the project
+----------------------------
+Usable, but not documented and it miss a big cleaning of auto generated
+symfony2 files...
 
 Installation
 -------------
