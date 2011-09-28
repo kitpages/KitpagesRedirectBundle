@@ -40,7 +40,6 @@ class RedirectionManager {
 
     public function onKernelRequest(GetResponseEvent $event)
     {
-        $this->getLogger()->info("********************* REDIRECT *****************");
         if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
             return;
         }
@@ -49,7 +48,7 @@ class RedirectionManager {
         $requestUri = $request->getRequestUri();
         $relativeRequestUri = str_replace($baseUrl, '', $requestUri);
         $relativeRequestUri = ltrim($relativeRequestUri, '/');
-        $this->getLogger()->debug("relativeRequestUri=$relativeRequestUri");
+        
         $em = $this->getDoctrine()->getEntityManager();
         $query = $em->createQuery("
             SELECT r
@@ -62,6 +61,7 @@ class RedirectionManager {
         }
         $redirection = $redirectionList[0];
         $destinationUrl = $baseUrl.'/'.$redirection->getDestinationUrl();
+        $this->getLogger()->info("redirection by redirectBundle relativeRequestUri=$relativeRequestUri, destinationUrl=$destinationUrl");
         if ($redirection->getHttpCode()) {
             $response = new RedirectResponse($destinationUrl, $redirection->getHttpCode());
         }
