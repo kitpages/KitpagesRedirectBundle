@@ -1,0 +1,22 @@
+{
+    "name": "kitpages/redirect-bundle",
+    "description": "Redirection 301 system for symfony2.",
+    "keywords": ["Redirection 301"],
+    "homepage": "http://github.com/kitpages/KitpagesRedirectBundle",
+    "type": "symfony-bundle",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Philippe Le Van",
+            "homepage": "https://twitter.com/#!/plv"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "2.1.*",
+        "doctrine/orm": ">=2.1.0"
+    },
+    "autoload": {
+        "psr-0": { "Kitpages\\RedirectBundle": "" }
+    },
+    "target-dir": "Kitpages/RedirectBundle"
+}
