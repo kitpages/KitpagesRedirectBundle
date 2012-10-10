@@ -17,5 +17,6 @@
     },
     "autoload": {
         "psr-0": { "Kitpages\\RedirectBundle": "" }
-    }
+    },
+    "target-dir": "Kitpages/RedirectBundle"
 }
