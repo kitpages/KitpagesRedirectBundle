@@ -49,7 +49,7 @@ class RedirectionManager {
         $relativeRequestUri = str_replace($baseUrl, '', $requestUri);
         $relativeRequestUri = ltrim($relativeRequestUri, '/');
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery("
             SELECT r
             FROM KitpagesRedirectBundle:Redirection r

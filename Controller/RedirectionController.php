@@ -19,7 +19,7 @@ class RedirectionController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('KitpagesRedirectBundle:Redirection')->findAll();
 
@@ -34,7 +34,7 @@ class RedirectionController extends Controller
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('KitpagesRedirectBundle:Redirection')->find($id);
 
@@ -75,10 +75,10 @@ class RedirectionController extends Controller
         $entity  = new Redirection();
         $request = $this->getRequest();
         $form    = $this->createForm(new RedirectionType(), $entity);
-        $form->bindRequest($request);
+        $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
@@ -98,7 +98,7 @@ class RedirectionController extends Controller
      */
     public function editAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('KitpagesRedirectBundle:Redirection')->find($id);
 
@@ -122,7 +122,7 @@ class RedirectionController extends Controller
      */
     public function updateAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('KitpagesRedirectBundle:Redirection')->find($id);
 
@@ -135,7 +135,7 @@ class RedirectionController extends Controller
 
         $request = $this->getRequest();
 
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
@@ -160,10 +160,10 @@ class RedirectionController extends Controller
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
-        $form->bindRequest($request);
+        $form->bind($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $entity = $em->getRepository('KitpagesRedirectBundle:Redirection')->find($id);
 
             if (!$entity) {
