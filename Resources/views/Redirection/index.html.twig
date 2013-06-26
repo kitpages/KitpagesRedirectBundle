@@ -1,12 +1,14 @@
+{% extends 'KitpagesRedirectBundle::layout.html.twig' %}
+
+{% block main_content %}
 <h1>Redirection list</h1>
 
-<table class="records_list">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>Sourceurl</th>
-            <th>Destinationurl</th>
-            <th>Httpcode</th>
-            <th>Id</th>
+            <th>Source url</th>
+            <th>Destination url</th>
+            <th>Http code</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -16,14 +18,10 @@
             <td><a href="{{ path('redirection_show', { 'id': entity.id }) }}">{{ entity.sourceUrl }}</a></td>
             <td>{{ entity.destinationUrl }}</td>
             <td>{{ entity.httpCode }}</td>
-            <td>{{ entity.id }}</td>
             <td>
-                <ul>
+                <ul class="inline-actions">
                     <li>
-                        <a href="{{ path('redirection_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('redirection_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('redirection_edit', { 'id': entity.id }) }}" class="btn btn-primary">edit</a>
                     </li>
                 </ul>
             </td>
@@ -31,11 +29,4 @@
     {% endfor %}
     </tbody>
 </table>
-
-<ul>
-    <li>
-        <a href="{{ path('redirection_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% endblock %}

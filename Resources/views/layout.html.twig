@@ -1,0 +1,46 @@
+{% extends base_layout %}
+
+{% block stylesheets %}
+<style type="text/css" media="screen">
+    .record_actions,
+    .inline-actions {
+        list-style-type: none;
+        margin: 0;
+    }
+    .record_actions li,
+    .inline-actions li {
+        display: inline-block;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="page-content redirection">
+    {% if app.session.hasFlash('notice') %}
+        <div class="alert alert-success">
+            {{ app.session.flash('notice') }}
+        </div>
+    {% elseif app.session.hasFlash('error') %}
+        <div class="alert alert-error">
+            {{ app.session.flash('error') }}
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span3">
+                {% block left_nav %}
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Actions</li>
+                        <li><a href="{{ path('redirection_new') }}"><i class="icon-plus-sign"></i> New redirection</a></li>
+                    </ul>
+                </div>
+                {% endblock %}
+            </div>
+            <div class="span9">
+                {% block main_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

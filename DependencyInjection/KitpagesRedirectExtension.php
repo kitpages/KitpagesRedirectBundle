@@ -24,5 +24,7 @@ class KitpagesRedirectExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+        
+        $container->setParameter('kitpages.redirect.layout', $config['layout']);
     }
 }

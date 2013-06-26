@@ -1,17 +1,20 @@
+{% extends 'KitpagesRedirectBundle::layout.html.twig' %}
+
+{% block main_content %}
 <h1>Redirection</h1>
 
-<table class="record_properties">
+<table class="table table-striped">
     <tbody>
         <tr>
-            <th>Sourceurl</th>
+            <th>Source url</th>
             <td>{{ entity.sourceUrl }}</td>
         </tr>
         <tr>
-            <th>Destinationurl</th>
+            <th>Destination url</th>
             <td>{{ entity.destinationUrl }}</td>
         </tr>
         <tr>
-            <th>Httpcode</th>
+            <th>Http code</th>
             <td>{{ entity.httpCode }}</td>
         </tr>
         <tr>
@@ -23,19 +26,20 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('redirection') }}">
+        <a href="{{ path('redirection') }}" class="btn">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('redirection_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('redirection_edit', { 'id': entity.id }) }}" class="btn btn-primary">
             Edit
         </a>
     </li>
     <li>
         <form action="{{ path('redirection_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
         </form>
     </li>
 </ul>
+{% endblock %}
