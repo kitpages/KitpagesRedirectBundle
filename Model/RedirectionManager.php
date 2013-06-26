@@ -7,7 +7,7 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
-use Symfony\Bundle\DoctrineBundle\Registry;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
 use Kitpages\RedirectBundle\Entity\Redirection;
 
@@ -16,7 +16,7 @@ class RedirectionManager {
     protected $doctrine = null;
     
     public function __construct(
-        Registry $doctrine,
+        RegistryInterface $doctrine,
         LoggerInterface $logger
     )
     {
