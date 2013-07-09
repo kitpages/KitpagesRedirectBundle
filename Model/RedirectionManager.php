@@ -7,28 +7,23 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\EntityManager;
 
 use Kitpages\RedirectBundle\Entity\Redirection;
 
 class RedirectionManager {
+    /** @var LoggerInterface  */
     protected $logger = null;
-    protected $doctrine = null;
+    /** @var EntityManager  */
+    protected $em;
     
     public function __construct(
-        RegistryInterface $doctrine,
+        EntityManager $em,
         LoggerInterface $logger
     )
     {
         $this->logger = $logger;
-        $this->doctrine = $doctrine;
-    }
-    /**
-     * @return Registry
-     */
-    public function getDoctrine()
-    {
-        return $this->doctrine;
+        $this->em = $em;
     }
     /**
      * @return LoggerInterface
@@ -48,9 +43,8 @@ class RedirectionManager {
         $requestUri = $request->getRequestUri();
         $relativeRequestUri = str_replace($baseUrl, '', $requestUri);
         $relativeRequestUri = ltrim($relativeRequestUri, '/');
-        
-        $em = $this->getDoctrine()->getEntityManager();
-        $query = $em->createQuery("
+
+        $query = $this->em->createQuery("
             SELECT r
             FROM KitpagesRedirectBundle:Redirection r
             WHERE r.sourceUrl = :sourceUrl
