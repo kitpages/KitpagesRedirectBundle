@@ -18,15 +18,16 @@
 
 {% block body %}
 <div class="page-content redirection">
-    {% if app.session.hasFlash('notice') %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="alert alert-success">
-            {{ app.session.flash('notice') }}
+            {{ flashMessage  }}
         </div>
-    {% elseif app.session.hasFlash('error') %}
+    {% endfor %}
+    {% for flashMessage in app.session.flashbag.get('error') %}
         <div class="alert alert-error">
-            {{ app.session.flash('error') }}
+            {{ flashMessage  }}
         </div>
-    {% endif %}
+    {% endfor %}
     <div class="container">
         <div class="row-fluid">
             <div class="span3">

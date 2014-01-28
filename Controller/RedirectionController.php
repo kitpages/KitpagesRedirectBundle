@@ -85,12 +85,18 @@ class RedirectionController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $this->get('session')->setFlash('notice', 'Redirection has been created');
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Redirection has been created'
+            );
 
             return $this->redirect($this->generateUrl('redirection'));
         }
         else {
-            $this->get('session')->setFlash('error', 'An error occured while creating redirection');
+            $this->get('session')->getFlashBag()->add(
+                'error',
+                'An error occured while creating redirection'
+            );
         }
 
         return $this->render('KitpagesRedirectBundle:Redirection:new.html.twig', array(
@@ -149,13 +155,19 @@ class RedirectionController extends Controller
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
-            
-            $this->get('session')->setFlash('notice', 'Redirection has been updated');
+
+            $this->get('session')->getFlashBag()->add(
+                'notice',
+                'Redirection has been updated'
+            );
 
             return $this->redirect($this->generateUrl('redirection'));
         }
         else {
-            $this->get('session')->setFlash('error', 'An error occured while updating redirection');
+            $this->get('error')->getFlashBag()->add(
+                'notice',
+                'An error occured while updating redirection'
+            );
         }
 
         return $this->render('KitpagesRedirectBundle:Redirection:edit.html.twig', array(
