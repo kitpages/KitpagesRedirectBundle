@@ -67,6 +67,9 @@ class Redirection
      */
     public function setDestinationUrl($destinationUrl)
     {
+        if(mb_substr($destinationUrl, 0, 1, 'UTF-8') == '/') {
+            $destinationUrl = mb_substr($destinationUrl, 1, null, 'UTF-8');
+        }
         $this->destinationUrl = $destinationUrl;
     }
 

@@ -11,7 +11,7 @@ class RedirectionType extends AbstractType
     {
         $builder
             ->add('sourceUrl')
-            ->add('destinationUrl')
+            ->add('destinationUrl', 'text', array('required' => false))
             ->add('httpCode')
         ;
     }
