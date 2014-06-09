@@ -6,7 +6,7 @@
       <generator strategy="AUTO"/>
     </id>
     <field name="sourceUrl" type="string" column="source_url" length="255"/>
-    <field name="destinationUrl" type="string" column="destination_url" length="255"/>
+    <field name="destinationUrl" type="string" column="destination_url" length="255" nullable="true"/>
     <field name="httpCode" type="string" column="http_code" length="5" nullable="true"/>
     <lifecycle-callbacks/>
   </entity>
